@@ -28,6 +28,7 @@
 
   function ChangeQR(custom){
     if(custom){
+      currentUrl="";
       showCurrentUrl=false
     }
     else{
