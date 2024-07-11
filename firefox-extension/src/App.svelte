@@ -5,6 +5,7 @@
   let canvas;
   let currentTabUrl;
   let currentUrl="";
+  let url='';
   let qr;
   onMount(async () => {
     currentTabUrl=await browser.tabs.query({active: true, lastFocusedWindow: true});
@@ -16,13 +17,17 @@
       height: 150,
       quietZone: 5,
       logo: "logo.png",
-      logoWidth: 40,
-      logoHeight: 40,
+      logoWidth: 30,
+      logoHeight: 30,
     };
     qr=new QRCode(canvas, options);
   });
     $:{
       if(qr) qr.makeCode(currentUrl)
+      if(currentUrl.length>25)
+        url=currentUrl.substring(0,25);
+      else
+      url=currentUrl;
     }
   let showCurrentUrl=true;
 
@@ -44,18 +49,23 @@
   <div id="card">
     <center>
       <div id="qrcode" bind:this={canvas}></div>
-      <div>
-        {currentUrl}
+      <div id='current-url'>
+        <div>{#if currentUrl!=""}{url}{:else}...{/if}</div>
+        {#if currentUrl.length>25}
+        <div>.....</div>
+        {/if}
       </div>
-      <div class={showCurrentUrl?"last-child":""}>
-        <button on:click={()=>ChangeQR(false)} class={showCurrentUrl?"active":""}>Current URL</button>
-        <button on:click={()=>ChangeQR(true)} class={!showCurrentUrl?"active":""}>Custom Text</button>
+      <div class="input">
+        <center>
+          <button on:click={()=>ChangeQR(false)} class={showCurrentUrl?"active":""}>Current URL</button>
+          <button on:click={()=>ChangeQR(true)} class={!showCurrentUrl?"active":""}>Custom Text</button>
+        </center>
+        {#if !showCurrentUrl}
+          <center>
+            <input bind:value={currentUrl} type="url">
+          </center>
+        {/if}
       </div>
-      {#if !showCurrentUrl}
-        <div class="last-child">
-          <input bind:value={currentUrl} type="url">
-        </div>
-      {/if}
     </center>
   </div>
 </main>
@@ -81,6 +91,10 @@
     border: none;
     color: var(--color-primary-400);
   }
+  #current-url{
+    margin-top: 10px;
+    width: 200px;
+  }
   button.active{
     color: var(--color-surface-100);
     background: var(--color-primary-500);
@@ -93,8 +107,8 @@
   div:not(#qrcode){
     margin-bottom: 10px;
   }
-  div.last-child{
-    margin-bottom: 0;
+  #current-url div{
+    margin: 0;
   }
   input{
     background-color: var(--color-surface-300);
@@ -102,5 +116,13 @@
     padding: 10px;
     color: #fff;
     border: none;
+  }
+  .input{
+    position: fixed;
+    width: 250px;
+    top: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 </style>
