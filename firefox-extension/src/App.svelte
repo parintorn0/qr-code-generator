@@ -17,8 +17,8 @@
       height: 150,
       quietZone: 5,
       logo: "logo.png",
-      logoWidth: 30,
-      logoHeight: 30,
+      logoWidth: 40,
+      logoHeight: 40,
     };
     qr=new QRCode(canvas, options);
   });
