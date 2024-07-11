@@ -5,6 +5,11 @@
 
     "description": "QR Code generator for current tab or custom text.",
 
+    "icons": {
+        "48": "logo.png",
+        "96": "logo.png"
+    },
+
     "permissions": [
         "tabs",
         "activeTab"
