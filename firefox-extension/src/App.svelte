@@ -1,10 +1,15 @@
 <script>
   import QRCode from "easyqrcodejs";
   import { onMount } from "svelte";
+  import browser from "webextension-polyfill"
   let canvas;
-  let currentUrl=document.URL;
+  let currentTabUrl;
+  let currentUrl="";
   let qr;
-  onMount(() => {
+  onMount(async () => {
+    currentTabUrl=await browser.tabs.query({active: true, lastFocusedWindow: true});
+    currentTabUrl=currentTabUrl[0].url;
+    currentUrl=currentTabUrl
     const options = {
       text: currentUrl,
       width: 150,
@@ -26,8 +31,10 @@
       showCurrentUrl=false
     }
     else{
-      currentUrl=document.URL;
-      showCurrentUrl=true
+      {
+        currentUrl=currentTabUrl;
+        showCurrentUrl=true
+      }
     }
   }
 </script>
@@ -41,7 +48,7 @@
       </div>
       <div class={showCurrentUrl?"last-child":""}>
         <button on:click={()=>ChangeQR(false)} class={showCurrentUrl?"active":""}>Current URL</button>
-        <button on:click={()=>ChangeQR(true)} class={!showCurrentUrl?"active":""}>Custom URL</button>
+        <button on:click={()=>ChangeQR(true)} class={!showCurrentUrl?"active":""}>Custom Text</button>
       </div>
       {#if !showCurrentUrl}
         <div class="last-child">
@@ -55,12 +62,13 @@
 <style>
   main {
     background-color: var(--color-surface-100);
-    height: 100%;
+    width: 250px;
+    height: 400px;
     padding: 15px;
   }
   main #card{
     border-radius: 15px;
-    height: 300px;
+    height: 360px;
     background-color: var(--color-surface-200);
     padding-top: 30px;
   }

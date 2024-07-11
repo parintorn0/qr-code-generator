@@ -1,0 +1,18 @@
+{
+    "manifest_version": 2,
+    "name": "QR Code Generator",
+    "version": "1.0",
+
+    "description": "QR Code generator for current tab or custom text.",
+
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+
+    "browser_action": {
+        "default_icon": "logo.png",
+        "default_title": "QR Code Generator",
+        "default_popup": "index.html"
+    }
+}

@@ -3,6 +3,7 @@
   margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  font-size: 13px;
   font-weight: 600;
 
   --color-primary-100:  #2b8df0;
@@ -31,9 +32,4 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-#app{
-  width: 250px;
-  height: 335px;
 }
