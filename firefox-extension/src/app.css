@@ -1,14 +1,39 @@
 :root {
+  padding: 0;
+  margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 600;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --color-primary-100:  #2b8df0;
+  --color-primary-200:  #5499f2;
+  --color-primary-300:  #70a5f4;
+  --color-primary-400:  #88b1f6;
+  --color-primary-500:  #9ebef8;
+  --color-primary-600:  #b2caf9;
+  --color-surface-100:  #121212;
+  --color-surface-200:  #282828;
+  --color-surface-300:  #3f3f3f;
+  --color-surface-400:  #575757;
+  --color-surface-500:  #717171;
+  --color-surface-600:  #8b8b8b;
+  --color-surface-mixed-100:  #24334c;
+  --color-surface-mixed-200:  #3a475e;
+  --color-surface-mixed-300:  #515b71;
+  --color-surface-mixed-400:  #687184;
+  --color-surface-mixed-500:  #7f8797;
+  --color-surface-mixed-600:  #989eab;
+
+  color: var(--color-primary-400);
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#app{
+  width: 250px;
+  height: 335px;
 }
