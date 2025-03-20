@@ -1,7 +1,13 @@
-# WXT + Svelte
+# QR Code generator's Firefox extension
 
-This template should help get you started developing with Svelte in WXT.
+`bun install` to install dependency
+`bun run build` to build chrome extension
+`bun run build:firefox` to build chrome extension
 
-## Recommended IDE Setup
+UI develop on Svelte JS
 
-[VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).
+Release log
+v1.0
+    Key feature
+    - Generate QR Code of Current URL opened
+    - Generate QR Code of Custom Text for sharing
