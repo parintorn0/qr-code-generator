@@ -2,7 +2,7 @@
 
 `bun install` to install dependency
 `bun run build` to build chrome extension
-`bun run build:firefox` to build chrome extension
+`bun run build:firefox` to build firefox extension
 
 UI develop on Svelte JS
 
