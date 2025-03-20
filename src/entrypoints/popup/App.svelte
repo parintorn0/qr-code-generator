@@ -106,9 +106,6 @@
   div:not(#qrcode){
     margin-bottom: 10px;
   }
-  #current-url div{
-    margin: 0;
-  }
   input{
     background-color: var(--color-surface-300);
     border-radius: 15px;
