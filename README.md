@@ -1,4 +1,4 @@
-# QR Code generator's Firefox extension
+# QR Code generator's extension
 
 `bun install` to install dependency
 `bun run build` to build chrome extension
