@@ -1,68 +1,66 @@
 <script>
   import QRCode from "easyqrcodejs";
   import { onMount } from "svelte";
-  import browser from "webextension-polyfill"
-  let canvas;
-  let currentTabUrl;
-  let currentUrl="";
-  let url='';
-  let qr;
+  import { browser } from "wxt/browser";
+
+  let textValue=$state("None");
+  let qrcode=$state();
+  let currentTabUrl = $state("None")
+
   onMount(async () => {
-    currentTabUrl=await browser.tabs.query({active: true, lastFocusedWindow: true});
-    currentTabUrl=currentTabUrl[0].url;
-    currentUrl=currentTabUrl
+    const currentTab = await browser.tabs.query({active: true, lastFocusedWindow: true});
+    currentTabUrl = currentTab[0].url;
+    textValue = currentTabUrl
     const options = {
-      text: currentUrl,
+      text: textValue,
       width: 150,
       height: 150,
       quietZone: 5,
-      logo: "logo.png",
-      logoWidth: 40,
-      logoHeight: 40,
+      logo: "/logo.png",
+      colorDark : "#000000",
+      colorLight : "#ffffff",
     };
-    qr=new QRCode(canvas, options);
+    qrcode=new QRCode(node, options);
   });
-    $:{
-      if(qr) qr.makeCode(currentUrl)
-      if(currentUrl.length>25)
-        url=currentUrl.substring(0,25);
-      else
-      url=currentUrl;
-    }
-  let showCurrentUrl=true;
+  let node;
+  
+  let showCurrentUrl=$state(true);
 
-  function ChangeQR(custom){
+  const changeQR = (custom) => {
     if(custom){
-      currentUrl="";
+      textValue=currentTabUrl
       showCurrentUrl=false
     }
     else{
-      {
-        currentUrl=currentTabUrl;
-        showCurrentUrl=true
-      }
+      textValue=currentTabUrl
+      showCurrentUrl=true
     }
   }
+  $effect(()=>{
+    if(qrcode)
+      qrcode.makeCode(textValue)
+  })
 </script>
 
 <main>
   <div id="card">
     <center>
-      <div id="qrcode" bind:this={canvas}></div>
+      <div bind:this={node}></div>
       <div id='current-url'>
-        <div>{#if currentUrl!=""}{url}{:else}...{/if}</div>
-        {#if currentUrl.length>25}
-        <div>.....</div>
-        {/if}
+          {textValue}
       </div>
       <div class="input">
         <center>
-          <button on:click={()=>ChangeQR(false)} class={showCurrentUrl?"active":""}>Current URL</button>
-          <button on:click={()=>ChangeQR(true)} class={!showCurrentUrl?"active":""}>Custom Text</button>
+          <button onclick={()=>changeQR(false)} class={showCurrentUrl?"active":""}>
+            Current URL
+          </button>
+          <button onclick={()=>changeQR(true)} class={!showCurrentUrl?"active":""}>
+            Custom Text
+          </button>
         </center>
         {#if !showCurrentUrl}
           <center>
-            <input bind:value={currentUrl} type="url">
+            <input bind:value={textValue} type="url">
           </center>
         {/if}
       </div>
@@ -76,10 +74,11 @@
     width: 250px;
     height: 400px;
     padding: 15px;
-  }
-  main #card{
     border-radius: 15px;
-    height: 360px;
+  }
+  #card{
+    border-radius: 15px;
+    height: calc(100% - 30px);
     background-color: var(--color-surface-200);
     padding-top: 30px;
   }
