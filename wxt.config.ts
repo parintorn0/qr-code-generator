@@ -5,4 +5,9 @@ export default defineConfig({
   srcDir: 'src',
   extensionApi: 'chrome',
   modules: ['@wxt-dev/module-svelte', '@wxt-dev/auto-icons'],
+  manifest: {
+    permissions: [
+      "activeTab",
+    ],
+  },
 });
