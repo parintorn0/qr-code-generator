@@ -47,8 +47,8 @@
     <center>
       <div bind:this={node}></div>
       <div id='current-url'>
-          {textValue.slice(0, 64)}
-          {#if textValue.length > 64}
+          {textValue.slice(0, 50)}
+          {#if textValue.length > 50}
             <br>...
           {/if}
       </div>
@@ -98,6 +98,8 @@
     width: 200px;
     font-size: 13px;
     font-weight: bold;
+    overflow-wrap: anywhere;
+    
   }
   button.active{
     color: var(--color-surface-100);
