@@ -6,6 +6,7 @@ export default defineConfig({
   extensionApi: 'chrome',
   modules: ['@wxt-dev/module-svelte', '@wxt-dev/auto-icons'],
   manifest: {
+    name: "QR Code Generator",
     permissions: [
       "activeTab",
     ],
