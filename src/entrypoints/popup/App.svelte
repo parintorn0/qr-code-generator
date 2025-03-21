@@ -47,7 +47,10 @@
     <center>
       <div bind:this={node}></div>
       <div id='current-url'>
-          {textValue}
+          {textValue.slice(0, 64)}
+          {#if textValue.length > 64}
+            <br>...
+          {/if}
       </div>
       <div class="input">
         <center>
