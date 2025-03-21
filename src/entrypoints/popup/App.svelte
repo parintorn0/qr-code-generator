@@ -93,6 +93,8 @@
   #current-url{
     margin-top: 10px;
     width: 200px;
+    font-size: 13px;
+    font-weight: bold;
   }
   button.active{
     color: var(--color-surface-100);

@@ -26,6 +26,7 @@
     "wxt": "^0.19.29"
   },
   "dependencies": {
+    "@fontsource/open-sans": "^5.2.5",
     "easyqrcodejs": "^4.6.1"
   }
 }
