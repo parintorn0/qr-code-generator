@@ -7,6 +7,7 @@ export default defineConfig({
   modules: ['@wxt-dev/module-svelte', '@wxt-dev/auto-icons'],
   manifest: {
     name: "QR Code Generator",
+    description: "Create QR Code to sharing everywhere",
     permissions: [
       "activeTab",
     ],
