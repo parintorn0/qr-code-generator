@@ -1,6 +1,6 @@
 # QR Code generator's extension
 
-### Add to your firefox [here](https://addons.mozilla.org/en-US/firefox/addon/jjfdnjvd-qr-code-generator/)
+- Add to your firefox [here](https://addons.mozilla.org/en-US/firefox/addon/jjfdnjvd-qr-code-generator/)
 
 ![Screenshot 1](/resources/screenshot1.png)
 ![Screenshot 2](/resources/screenshot2.png)
