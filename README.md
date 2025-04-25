@@ -9,6 +9,13 @@
 - Generate QR Code of Current URL opened
 - Generate QR Code of Custom Text for sharing
 
+## Development
+`bun install` to install dependency
+
+`bun run dev` to build chrome extension
+
+`bun run dev:firefox` to build firefox extension
+
 ## Build
 `bun install` to install dependency
 
