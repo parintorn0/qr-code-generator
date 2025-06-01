@@ -1,0 +1,40 @@
+name: New Release
+on:
+  push:
+    tags:
+      - "v*.*"
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Commit
+        uses: actions/checkout@v4
+
+      - name: Install Pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Build chrome extension and firefox extension
+        run: |
+          pnpm run build
+          pnpm run build:firefox
+
+      - name: Chrome Compression
+        run: cd .output/chrome-mv3 && zip -r ../../chrome.zip .
+      - name: Firefox Compression
+        run: cd .output/firefox-mv2 && zip -r ../../firefox.zip .
+
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag'
+        with:
+          body_path: .assets/release.txt
+          files: |
+            chrome.zip
+            firefox.zip
+          repository: parintorn0/qr-code-generator
+          token: ${{ secrets.GITHUB_TOKEN }}
