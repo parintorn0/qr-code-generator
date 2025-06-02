@@ -1,2 +1,2 @@
 ### Release notes
-- Publishing Automation Added
+- Fix some browser not work

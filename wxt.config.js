@@ -6,7 +6,9 @@ export default defineConfig({
   manifest: {
     name: "QR Code Generator",
     description: "Create QR Code to sharing everywhere",
-    permissions: []
+    permissions: [
+      'activeTab'
+    ]
   },
   
 });
