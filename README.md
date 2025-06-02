@@ -22,11 +22,3 @@
 `pnpm run build` to build chrome extension
 
 `pnpm run build:firefox` to build firefox extension
-
-## Release notes
-- v1.1
-    - Add Manifest Description
-    - Update Popup title
-    - Remove Unnessesary Permission
-- v1.0
-    - First Release
