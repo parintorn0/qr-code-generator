@@ -1,3 +1,2 @@
 ### Release notes
-- Fully integrated to React
-- Update to latest WXT
+- Publishing Automation Added
