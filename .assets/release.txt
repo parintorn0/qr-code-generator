@@ -1,2 +1,3 @@
 ### Release notes
+- Update versioning
 - Fix some browser not work
