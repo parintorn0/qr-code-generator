@@ -9,7 +9,7 @@
 
 <div>
 
-[![Install](https://img.shields.io/badge/get_add--on_now-FF7139?style=for-the-badge&logo=firefox&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/jjfdnjvd-qr-code-generator/)
+[![Install](https://img.shields.io/badge/get_add--on-FF7139?style=for-the-badge&logo=firefox&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/jjfdnjvd-qr-code-generator/)
 
 
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/parintorn0/qr-code-generator/gh-release.yml)
