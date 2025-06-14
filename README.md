@@ -41,3 +41,6 @@
 `pnpm run build` to build chrome extension
 
 `pnpm run build:firefox` to build firefox extension
+
+### Future Plan
+- Due to QR Code generate by client, I planned to create my own module for better performance using WebAssembly soon.
