@@ -40,19 +40,19 @@ export default function App() {
                 <><br/>...</>
               }
           </div>
-          <div class="input">
-            <center>
-              <button onClick={()=>changeCustom(false)} class={!isCustom?"active":""}>
+          <div className="input">
+            <div className='selection'>
+              <button onClick={()=>changeCustom(false)} className={!isCustom?"active":""}>
                 Current URL
               </button>
-              <button onClick={()=>changeCustom(true)} class={isCustom?"active":""}>
+              <button onClick={()=>changeCustom(true)} className={isCustom?"active":""}>
                 Custom Text
               </button>
-            </center>
-            {isCustom && 
-              <center>
+            </div>
+            {isCustom &&
+              <div>
                 <input value={content} onChange={(e)=>changeContent(e.target.value)} type="url" />
-              </center>
+              </div>
             }
               
           </div>

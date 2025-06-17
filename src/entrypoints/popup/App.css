@@ -54,3 +54,8 @@ input{
   flex-direction: column;
   gap: 10px;
 }
+.selection{
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
