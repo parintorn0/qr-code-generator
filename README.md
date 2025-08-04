@@ -11,7 +11,7 @@
 
 [![Install](https://img.shields.io/badge/get_add--on-FF7139?style=for-the-badge&logo=firefox&logoColor=white)](https://addons.mozilla.org/en-US/firefox/addon/jjfdnjvd-qr-code-generator/)
 
-
+![License](https://img.shields.io/github/license/parintorn0/qr-code-generator)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/parintorn0/qr-code-generator/gh-release.yml)
 ![GitHub Release Date](https://img.shields.io/github/release-date/parintorn0/qr-code-generator)
 ![GitHub last commit](https://img.shields.io/github/last-commit/parintorn0/qr-code-generator)
